@@ -1,5 +1,18 @@
 
-# Created by https://www.gitignore.io/api/osx,linux,windows,go
+# Created by https://www.gitignore.io/api/linux,osx,windows,go
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
 
 ### OSX ###
 .DS_Store
@@ -27,19 +40,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-
-### Linux ###
-*~
-
-# temporary files which can be created if a process still has a handle open of a deleted file
-.fuse_hidden*
-
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
 
 
 ### Windows ###
@@ -88,4 +88,3 @@ _testmain.go
 *.exe
 *.test
 *.prof
-
