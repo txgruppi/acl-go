@@ -13,7 +13,7 @@ func NewDriver(client *redis.Client, prefix string) *Driver {
 	}
 }
 
-// Driver is a 'in memory' ACL Driver
+// Driver is a ACL Driver that uses Redis as rule storage
 type Driver struct {
 	defaultPolicy acl.Policy
 	client        *redis.Client
