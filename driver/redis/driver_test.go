@@ -1,33 +1,28 @@
 package redis_test
 
 import (
+	"os"
 	"testing"
 
 	"github.com/nproc/acl-go"
 	"github.com/nproc/acl-go/driver/redis"
 	. "github.com/smartystreets/goconvey/convey"
-	"github.com/stvp/tempredis"
 	rds "gopkg.in/redis.v3"
 )
 
 func TestRedisDriver(t *testing.T) {
+	addr := os.Getenv("TEST_REDIS_ADDR")
+	pass := os.Getenv("TEST_REDIS_PASS")
+	client := rds.NewClient(&rds.Options{
+		Addr:     addr,
+		Password: pass,
+		DB:       0,
+	})
+
 	Convey("redis.Driver", t, func() {
-		server, err := tempredis.Start(tempredis.Config{})
-		So(err, ShouldBeNil)
-
-		client := rds.NewClient(&rds.Options{
-			Network: "unix",
-			Addr:    server.Socket(),
+		Reset(func() {
+			client.FlushDb()
 		})
-		So(
-			client.Ping().Err(),
-			ShouldBeNil,
-		)
-
-		defer func() {
-			client.FlushAll()
-			server.Term()
-		}()
 
 		driver := redis.NewDriver(client, "acl")
 		actor, err := driver.GetActor("testActor")
