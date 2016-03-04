@@ -46,15 +46,22 @@ type Action interface {
 
 // Driver defines the basic methods for an ACL manager driver
 type Driver interface {
-	// Open the communication with the Driver's backend
-	Open() error
+	// Begin the communication with the Driver's backend
+	//
+	// This method should be used to do any initialization before the driver can
+	// be used
+	Begin() error
 
-	// Close the communication with the Driver's backend
-	Close() error
+	// End the communication with the Driver's backend
+	//
+	// This method should be used to do any cleanup after the driver is no more
+	// needed
+	End() error
 
 	// SetDefaultPolicy defines what is the default policy
 	//
-	// The default policy is return when a rule is not defined
+	// The default policy is return when a rule is not defined.
+	// Its value should be false by default.
 	SetDefaultPolicy(Policy) error
 
 	// GetActor returns an Actor with the given ID
