@@ -1,5 +1,5 @@
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/nproc/acl-go)
-![Codeship](https://img.shields.io/codeship/00000000000000000000000000000000000000000000000000000000000.svg?style=flat-square)
+![Codeship](https://img.shields.io/codeship/6149a4b0-c485-0133-222a-265f477b0567.svg?style=flat-square)
 [![Codecov](https://img.shields.io/codecov/c/github/nproc/acl-go.svg?style=flat-square)](https://codecov.io/github/nproc/acl-go)
 [![Go Report Card](https://img.shields.io/badge/go_report-A+-brightgreen.svg?style=flat-square)](https://goreportcard.com/report/github.com/nproc/acl-go)
 
