@@ -15,7 +15,7 @@ go get -u github.com/nproc/acl-go
 
 ## Example
 
-*You should not ignored the errors returned by the methods*
+*You should not ignore the errors returned by the methods*
 
 ```go
 package main
