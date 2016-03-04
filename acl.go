@@ -58,9 +58,9 @@ type Driver interface {
 	// needed
 	End() error
 
-	// SetDefaultPolicy defines what is the default policy
+	// SetDefaultPolicy defines the default access policy, whether to deny or allow
 	//
-	// The default policy is return when a rule is not defined.
+	// The default policy is returned when a rule is not defined.
 	// Its value should be false by default.
 	SetDefaultPolicy(Policy) error
 
