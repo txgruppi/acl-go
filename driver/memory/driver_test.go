@@ -16,12 +16,12 @@ func TestMemoryDriver(t *testing.T) {
 		action, err := driver.GetAction("testAction")
 		So(err, ShouldBeNil)
 
-		Convey(".Open should return nil", func() {
-			So(driver.Open(), ShouldBeNil)
+		Convey(".Begin should return nil", func() {
+			So(driver.Begin(), ShouldBeNil)
 		})
 
-		Convey(".Close should return nil", func() {
-			So(driver.Close(), ShouldBeNil)
+		Convey(".End should return nil", func() {
+			So(driver.End(), ShouldBeNil)
 		})
 
 		Convey("it should start with default policy as Deny", func() {

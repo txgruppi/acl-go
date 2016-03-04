@@ -21,13 +21,13 @@ type Driver struct {
 	mutex  sync.RWMutex
 }
 
-// Open - Check github.com/nproc/acl.Driver.Open
-func (d *Driver) Open() error {
+// Begin - Check github.com/nproc/acl.Driver.Begin
+func (d *Driver) Begin() error {
 	return nil
 }
 
-// Close - Check github.com/nproc/acl.Driver.Close
-func (d *Driver) Close() error {
+// End - Check github.com/nproc/acl.Driver.End
+func (d *Driver) End() error {
 	return nil
 }
 
