@@ -88,3 +88,4 @@ _testmain.go
 *.exe
 *.test
 *.prof
+coverage.txt
