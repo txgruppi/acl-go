@@ -26,7 +26,7 @@ type ACL interface {
 	Set(Actor, Action, Policy) error
 }
 
-// Actor is a user which has access or not to one or more actions
+// Actor is an user which has access or not to one or more actions
 type Actor interface {
 	// IsAllowed checks if this user has access to an action
 	IsAllowed(Action) (bool, error)
@@ -35,7 +35,7 @@ type Actor interface {
 	String() string
 }
 
-// Action is a action which can be allowed or denied to one or more actors
+// Action is an action which can be allowed or denied to one or more actors
 type Action interface {
 	// Allows checks if this action is allowed to an actor
 	Allows(Actor) (bool, error)
