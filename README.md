@@ -62,6 +62,14 @@ func main() {
 }
 ```
 
+## Tests
+
+```
+go get -u -t github.com/nproc/acl-go
+cd $GOPATH/src/github.com/nproc/acl-go
+go test ./...
+```
+
 ## License
 
 MIT
