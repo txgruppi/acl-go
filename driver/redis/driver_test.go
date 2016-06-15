@@ -1,9 +1,9 @@
 package redis_test
 
 import (
-	"os"
 	"testing"
 
+	"github.com/alicebob/miniredis"
 	"github.com/nproc/acl-go"
 	"github.com/nproc/acl-go/driver/redis"
 	. "github.com/smartystreets/goconvey/convey"
@@ -11,12 +11,15 @@ import (
 )
 
 func TestRedisDriver(t *testing.T) {
-	addr := os.Getenv("TEST_REDIS_ADDR")
-	pass := os.Getenv("TEST_REDIS_PASS")
+	server, err := miniredis.Run()
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer server.Close()
+
 	client := rds.NewClient(&rds.Options{
-		Addr:     addr,
-		Password: pass,
-		DB:       0,
+		Addr: server.Addr(),
+		DB:   0,
 	})
 
 	Convey("redis.Driver", t, func() {
