@@ -1,0 +1,35 @@
+hash: 7502e47b2f714e6db97412c36dc4f3379988e853ba9c08ba04d94a1aebc75495
+updated: 2017-01-24T19:35:09.736785635-02:00
+imports:
+- name: github.com/alicebob/miniredis
+  version: 10ddf01f45bee3c40d1af5dbaad9aa71e6f20835
+testImports:
+- name: github.com/bsm/redeo
+  version: 1ce09fc76693fb3c1ca9b529c66f38920beb6fb8
+  subpackages:
+  - info
+- name: github.com/gopherjs/gopherjs
+  version: 2967252ace8b112e63a5b5879e92de915fe731f4
+  subpackages:
+  - js
+- name: github.com/jtolds/gls
+  version: bb0351aa7eb6f322f32667d51375f26a2bca6628
+- name: github.com/smartystreets/assertions
+  version: 26acb9229f421449ac63d014995b282d59261a8b
+  subpackages:
+  - internal/go-render/render
+  - internal/oglematchers
+- name: github.com/smartystreets/goconvey
+  version: d4c757aa9afd1e2fc1832aaab209b5794eb336e1
+  subpackages:
+  - convey
+  - convey/gotest
+  - convey/reporting
+- name: gopkg.in/redis.v5
+  version: 8829ddcd8bdb333e477cc845946c4b9b2ef66280
+  subpackages:
+  - internal
+  - internal/consistenthash
+  - internal/hashtag
+  - internal/pool
+  - internal/proto

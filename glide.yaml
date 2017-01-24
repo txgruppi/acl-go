@@ -1,0 +1,10 @@
+package: github.com/txgruppi/acl-go
+import:
+- package: github.com/alicebob/miniredis
+testImport:
+- package: github.com/smartystreets/goconvey
+  version: ~1.6.2
+  subpackages:
+  - convey
+- package: gopkg.in/redis.v5
+  version: ~5.2.2

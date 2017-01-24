@@ -1,6 +1,0 @@
-gom "gopkg.in/redis.v3", :tag => "v3.6.3"
-
-group :test do
-  gom "github.com/smartystreets/goconvey", :tag => "1.6.2"
-  gom "github.com/alicebob/miniredis", :commit => "739acf22b3b30d1a215153f511f5263896940ab2"
-end
