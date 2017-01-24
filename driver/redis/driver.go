@@ -1,9 +1,6 @@
 package redis
 
-import (
-	"github.com/nproc/acl-go"
-	"gopkg.in/redis.v3"
-)
+import "github.com/txgruppi/acl-go"
 
 // NewDriver creates a new Driver
 func NewDriver(client *redis.Client, prefix string) *Driver {
@@ -20,7 +17,7 @@ type Driver struct {
 	prefix        string
 }
 
-// Begin - Check github.com/nproc/acl.Driver.Begin
+// Begin - Check github.com/txgruppi/acl.Driver.Begin
 func (d *Driver) Begin() error {
 	return d.client.Set(
 		d.getDefaltPolicyKey(),
@@ -29,12 +26,12 @@ func (d *Driver) Begin() error {
 	).Err()
 }
 
-// End - Check github.com/nproc/acl.Driver.End
+// End - Check github.com/txgruppi/acl.Driver.End
 func (d *Driver) End() error {
 	return nil
 }
 
-// SetDefaultPolicy - Check github.com/nproc/acl.Driver.SetDefaultPolicy
+// SetDefaultPolicy - Check github.com/txgruppi/acl.Driver.SetDefaultPolicy
 func (d *Driver) SetDefaultPolicy(policy acl.Policy) error {
 	d.defaultPolicy = policy
 	var value int
@@ -44,17 +41,17 @@ func (d *Driver) SetDefaultPolicy(policy acl.Policy) error {
 	return d.client.Set(d.getDefaltPolicyKey(), value, 0).Err()
 }
 
-// GetActor - Check github.com/nproc/acl.Driver.GetActor
+// GetActor - Check github.com/txgruppi/acl.Driver.GetActor
 func (d *Driver) GetActor(id string) (acl.Actor, error) {
 	return acl.NewSimpleActor(d, id), nil
 }
 
-// GetAction - Check github.com/nproc/acl.Driver.GetAction
+// GetAction - Check github.com/txgruppi/acl.Driver.GetAction
 func (d *Driver) GetAction(id string) (acl.Action, error) {
 	return acl.NewSimpleAction(d, id), nil
 }
 
-// Set - Check github.com/nproc/acl.Driver.Set
+// Set - Check github.com/txgruppi/acl.Driver.Set
 func (d *Driver) Set(actor acl.Actor, action acl.Action, policy acl.Policy) error {
 	return d.client.Set(
 		d.getRuleKey(actor, action),
@@ -63,7 +60,7 @@ func (d *Driver) Set(actor acl.Actor, action acl.Action, policy acl.Policy) erro
 	).Err()
 }
 
-// IsAllowed - Check github.com/nproc/acl.Driver.IsAllowed
+// IsAllowed - Check github.com/txgruppi/acl.Driver.IsAllowed
 func (d *Driver) IsAllowed(actor acl.Actor, action acl.Action) (bool, error) {
 	multi := d.client.Multi()
 	cmder, err := multi.Exec(func() error {

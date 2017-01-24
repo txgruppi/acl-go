@@ -3,7 +3,7 @@ package memory
 import (
 	"sync"
 
-	"github.com/nproc/acl-go"
+	"github.com/txgruppi/acl-go"
 )
 
 // NewDriver creates a new Driver
@@ -21,33 +21,33 @@ type Driver struct {
 	mutex  sync.RWMutex
 }
 
-// Begin - Check github.com/nproc/acl.Driver.Begin
+// Begin - Check github.com/txgruppi/acl.Driver.Begin
 func (d *Driver) Begin() error {
 	return nil
 }
 
-// End - Check github.com/nproc/acl.Driver.End
+// End - Check github.com/txgruppi/acl.Driver.End
 func (d *Driver) End() error {
 	return nil
 }
 
-// SetDefaultPolicy - Check github.com/nproc/acl.Driver.SetDefaultPolicy
+// SetDefaultPolicy - Check github.com/txgruppi/acl.Driver.SetDefaultPolicy
 func (d *Driver) SetDefaultPolicy(policy acl.Policy) error {
 	d.policy = bool(policy)
 	return nil
 }
 
-// GetActor - Check github.com/nproc/acl.Driver.GetActor
+// GetActor - Check github.com/txgruppi/acl.Driver.GetActor
 func (d *Driver) GetActor(id string) (acl.Actor, error) {
 	return acl.NewSimpleActor(d, id), nil
 }
 
-// GetAction - Check github.com/nproc/acl.Driver.GetAction
+// GetAction - Check github.com/txgruppi/acl.Driver.GetAction
 func (d *Driver) GetAction(id string) (acl.Action, error) {
 	return acl.NewSimpleAction(d, id), nil
 }
 
-// Set - Check github.com/nproc/acl.Driver.Set
+// Set - Check github.com/txgruppi/acl.Driver.Set
 func (d *Driver) Set(actor acl.Actor, action acl.Action, policy acl.Policy) error {
 	d.mutex.Lock()
 	defer d.mutex.Unlock()
@@ -58,7 +58,7 @@ func (d *Driver) Set(actor acl.Actor, action acl.Action, policy acl.Policy) erro
 	return nil
 }
 
-// IsAllowed - Check github.com/nproc/acl.Driver.IsAllowed
+// IsAllowed - Check github.com/txgruppi/acl.Driver.IsAllowed
 func (d *Driver) IsAllowed(actor acl.Actor, action acl.Action) (bool, error) {
 	d.mutex.RLock()
 	defer d.mutex.RUnlock()

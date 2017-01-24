@@ -3,9 +3,9 @@ package acl_test
 import (
 	"testing"
 
-	"github.com/nproc/acl-go"
-	"github.com/nproc/acl-go/driver/memory"
 	. "github.com/smartystreets/goconvey/convey"
+	"github.com/txgruppi/acl-go"
+	"github.com/txgruppi/acl-go/driver/memory"
 )
 
 func TestSimpleActor(t *testing.T) {

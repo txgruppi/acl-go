@@ -1,7 +1,7 @@
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/nproc/acl-go)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/txgruppi/acl-go)
 ![Codeship](https://img.shields.io/codeship/6149a4b0-c485-0133-222a-265f477b0567.svg?style=flat-square)
-[![Codecov](https://img.shields.io/codecov/c/github/nproc/acl-go.svg?style=flat-square)](https://codecov.io/github/nproc/acl-go)
-[![Go Report Card](https://img.shields.io/badge/go_report-A+-brightgreen.svg?style=flat-square)](https://goreportcard.com/report/github.com/nproc/acl-go)
+[![Codecov](https://img.shields.io/codecov/c/github/txgruppi/acl-go.svg?style=flat-square)](https://codecov.io/github/txgruppi/acl-go)
+[![Go Report Card](https://img.shields.io/badge/go_report-A+-brightgreen.svg?style=flat-square)](https://goreportcard.com/report/github.com/txgruppi/acl-go)
 
 # ACL - Access Control List
 
@@ -10,7 +10,7 @@ ACL is a simple but powerful Access Control List manager
 ## Installation
 
 ```
-go get -u github.com/nproc/acl-go
+go get -u github.com/txgruppi/acl-go
 ```
 
 ## Example
@@ -23,8 +23,8 @@ package main
 import (
   "fmt"
 
-  "github.com/nproc/acl-go"
-  "github.com/nproc/acl-go/driver/memory"
+  "github.com/txgruppi/acl-go"
+  "github.com/txgruppi/acl-go/driver/memory"
 )
 
 func main() {
@@ -65,8 +65,8 @@ func main() {
 ## Tests
 
 ```
-go get -u -t github.com/nproc/acl-go
-cd $GOPATH/src/github.com/nproc/acl-go
+go get -u -t github.com/txgruppi/acl-go
+cd $GOPATH/src/github.com/txgruppi/acl-go
 go test ./...
 ```
 

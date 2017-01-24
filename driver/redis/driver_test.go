@@ -4,9 +4,9 @@ import (
 	"testing"
 
 	"github.com/alicebob/miniredis"
-	"github.com/nproc/acl-go"
-	"github.com/nproc/acl-go/driver/redis"
 	. "github.com/smartystreets/goconvey/convey"
+	"github.com/txgruppi/acl-go"
+	"github.com/txgruppi/acl-go/driver/redis"
 	rds "gopkg.in/redis.v3"
 )
 
