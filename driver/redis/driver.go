@@ -1,6 +1,9 @@
 package redis
 
-import "github.com/txgruppi/acl-go"
+import (
+	"github.com/txgruppi/acl-go"
+	redis "gopkg.in/redis.v5"
+)
 
 // NewDriver creates a new Driver
 func NewDriver(client *redis.Client, prefix string) *Driver {
@@ -62,12 +65,10 @@ func (d *Driver) Set(actor acl.Actor, action acl.Action, policy acl.Policy) erro
 
 // IsAllowed - Check github.com/txgruppi/acl.Driver.IsAllowed
 func (d *Driver) IsAllowed(actor acl.Actor, action acl.Action) (bool, error) {
-	multi := d.client.Multi()
-	cmder, err := multi.Exec(func() error {
-		multi.SetNX(d.getDefaltPolicyKey(), d.policyToInt(d.defaultPolicy), 0)
-		multi.MGet(d.getDefaltPolicyKey(), d.getRuleKey(actor, action))
-		return nil
-	})
+	pipe := d.client.TxPipeline()
+	pipe.SetNX(d.getDefaltPolicyKey(), d.policyToInt(d.defaultPolicy), 0)
+	pipe.MGet(d.getDefaltPolicyKey(), d.getRuleKey(actor, action))
+	cmder, err := pipe.Exec()
 	if err != nil {
 		return false, err
 	}

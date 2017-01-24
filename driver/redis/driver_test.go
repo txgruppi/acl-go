@@ -7,7 +7,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 	"github.com/txgruppi/acl-go"
 	"github.com/txgruppi/acl-go/driver/redis"
-	rds "gopkg.in/redis.v3"
+	rds "gopkg.in/redis.v5"
 )
 
 func TestRedisDriver(t *testing.T) {
@@ -70,12 +70,14 @@ func TestRedisDriver(t *testing.T) {
 			So(can, ShouldBeFalse)
 
 			err = driver.Set(actor, action, acl.Allow)
+			So(err, ShouldBeNil)
 
 			can, err = driver.IsAllowed(actor, action)
 			So(err, ShouldBeNil)
 			So(can, ShouldBeTrue)
 
 			err = driver.Set(actor, action, acl.Deny)
+			So(err, ShouldBeNil)
 
 			can, err = driver.IsAllowed(actor, action)
 			So(err, ShouldBeNil)
