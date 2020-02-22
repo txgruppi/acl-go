@@ -4,10 +4,10 @@ import (
 	"testing"
 
 	"github.com/alicebob/miniredis"
+	rds "github.com/go-redis/redis/v7"
 	. "github.com/smartystreets/goconvey/convey"
 	"github.com/txgruppi/acl-go"
 	"github.com/txgruppi/acl-go/driver/redis"
-	rds "gopkg.in/redis.v5"
 )
 
 func TestRedisDriver(t *testing.T) {
@@ -24,7 +24,7 @@ func TestRedisDriver(t *testing.T) {
 
 	Convey("redis.Driver", t, func() {
 		Reset(func() {
-			client.FlushDb()
+			client.FlushDB()
 		})
 
 		driver := redis.NewDriver(client, "acl")

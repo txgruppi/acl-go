@@ -1,8 +1,8 @@
 package redis
 
 import (
+	redis "github.com/go-redis/redis/v7"
 	"github.com/txgruppi/acl-go"
-	redis "gopkg.in/redis.v5"
 )
 
 // NewDriver creates a new Driver
